@@ -56,4 +56,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-}
+// https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api
+    implementation("jakarta.mail:jakarta.mail-api:2.1.4")}
