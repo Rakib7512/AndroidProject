@@ -8,35 +8,29 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Splash extends AppCompatActivity {
 
     private TextView splashTextView;
+    private final String message = "প্রাথমিক স্বাস্থ্য সেবায় আপনাকে স্বাগতম";
 
-    private String message="প্রাথমিক স্বাস্থ্য সেবায় আপনাকে স্বাগতম";
+    private int index = 0;
+    private final long delay = 150;
 
-    private int index=0;
-    private long delay=150;
+    private final Handler handler = new Handler(Looper.getMainLooper());
 
-    private Handler handler=new Handler(Looper.getMainLooper());
-
-    private Runnable characterAddre = new Runnable() {
+    private final Runnable characterAdder = new Runnable() {
         @Override
         public void run() {
-            splashTextView.setText(message.substring(0, index++));
-
-            if (index < message.length()) {
-                // Continue typing animation
-                handler.postDelayed(characterAddre, delay);
+            if (index <= message.length()) {
+                splashTextView.setText(message.substring(0, index++));
+                handler.postDelayed(this, delay);
             } else {
-                // After animation ends, move to Home activity
+                // Typing finished → Move to Home screen
                 handler.postDelayed(() -> {
-                    startActivity(new Intent(getApplicationContext(), Home.class));
+                    startActivity(new Intent(Splash.this, Home.class));
                     finish();
-                }, 1000); // Delay 1 second before starting Home activity
+                }, 1000);
             }
         }
     };
@@ -47,16 +41,15 @@ public class Splash extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
 
+        splashTextView = findViewById(R.id.splashTextView);
 
-        splashTextView=findViewById(R.id.splashTextView);
-
-        handler.postDelayed(characterAddre, delay);
-
+        // Start the typing animation
+        handler.postDelayed(characterAdder, delay);
     }
 
     @Override
-    protected  void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        handler.removeCallbacks(characterAddre);
+        handler.removeCallbacks(characterAdder);
     }
 }
