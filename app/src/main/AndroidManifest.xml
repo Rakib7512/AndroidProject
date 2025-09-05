@@ -12,24 +12,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstProject">
         <activity
+            android:name=".ListOfHospitals"
+            android:exported="false" />
+        <activity
+            android:name=".EmargencyNo"
+            android:exported="false" />
+        <activity
+            android:name=".Medicine"
+            android:exported="false" />
+        <activity
+            android:name=".DrAdvice"
+            android:exported="false" />
+        <activity
+            android:name=".HealthService"
+            android:exported="false" />
+        <activity
             android:name=".Splash"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

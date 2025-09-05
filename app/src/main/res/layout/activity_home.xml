@@ -41,23 +41,24 @@
         app:iconTint="@color/white" />
 
     <!-- 🔹 Second Button -->
+
+    <!-- 🔹 Third Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSecond"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif"
         android:text="ডাক্তার পরামর্শ"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:fontFamily="sans-serif"
-        android:layout_marginBottom="20dp"
         app:backgroundTint="@color/black"
         app:cornerRadius="20dp"
         app:icon="@drawable/ic_doctor"
         app:iconGravity="start"
         app:iconTint="@color/white" />
 
-    <!-- 🔹 Third Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnThird"
         style="@style/Widget.MaterialComponents.Button.Icon"
